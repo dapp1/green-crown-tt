@@ -103,7 +103,7 @@ MonoBehaviour:
   id: 0
   draggable: 1
   nextObjects: 2
-  currentObject: 0
+  currentObject: 1
 --- !u!61 &7965074617699825309
 BoxCollider2D:
   m_ObjectHideFlags: 0

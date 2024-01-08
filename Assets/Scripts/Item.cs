@@ -32,9 +32,13 @@ public class Item : Objects
     {
         if (collision.gameObject.CompareTag("item"))
         {
-            int id = (int)collision.gameObject.GetComponent<Item>().nextObjects;
+            int id = (int)collision.gameObject.GetComponent<Item>().currentObject;
+            if(id == 0 && (int)currentObject == 0 || id == 1 && (int)currentObject == 1)
+            {
+                return;
+            }
 
-            if (id == (int)this.nextObjects)
+            if (id == (int)this.currentObject || (id == 0 && (int)currentObject == 1) || (id == 1 && (int)currentObject == 0))
             {
                 _isColliding = true;
             }
