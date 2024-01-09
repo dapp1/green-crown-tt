@@ -7,8 +7,9 @@ public class Checker : MonoBehaviour
 {
     public static Checker Instance;
 
+    public ObjectData objectData;
+
     public List<BoxPoint> boxPoints = new List<BoxPoint>();
-    public List<GameObject> items = new List<GameObject>();
 
     public Dictionary<int, GameObject> prefabDictionary = new Dictionary<int, GameObject>();
 
@@ -41,10 +42,7 @@ public class Checker : MonoBehaviour
             id--;   
         }
 
-        prefabDictionary.Add((int)GameItems.Stick, items[0]);
-        prefabDictionary.Add((int)GameItems.Lezvie, items[1]);
-        prefabDictionary.Add((int)GameItems.StonePickaxe, items[2]);
-        prefabDictionary.Add((int)GameItems.GoldPickaxe, items[3]);
+        objectData.Collect(prefabDictionary);
     }
 
     public void NotifyObjectStatusChange(Item obj)

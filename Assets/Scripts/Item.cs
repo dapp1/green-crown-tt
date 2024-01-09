@@ -32,13 +32,8 @@ public class Item : Objects
     {
         if (collision.gameObject.CompareTag("item"))
         {
-            int id = (int)collision.gameObject.GetComponent<Item>().currentObject;
-            if(id == 0 && (int)currentObject == 0 || id == 1 && (int)currentObject == 1)
-            {
-                return;
-            }
-
-            if (id == (int)this.currentObject || (id == 0 && (int)currentObject == 1) || (id == 1 && (int)currentObject == 0))
+            GameItems id = collision.gameObject.GetComponent<Item>().currentObject;
+            if(checker.objectData.Combine(id, currentObject))
             {
                 _isColliding = true;
             }
@@ -127,12 +122,15 @@ public class Item : Objects
 
     private void CreateNewObject(int newId, Vector2 position, int id)
     {
-        if (Checker.Instance.prefabDictionary.ContainsKey(newId))
+        if (checker.prefabDictionary.ContainsKey(newId))
         {
-            GameObject nextObj = Instantiate(checker.items[newId]);
-            nextObj.transform.position = position;
-            nextObj.GetComponent<Item>()._combinedObject = true;
-            nextObj.GetComponent<Item>().id = id;
+            if (checker.prefabDictionary.TryGetValue(newId, out GameObject prefabObject))
+            {
+                GameObject nextObj = Instantiate(prefabObject);
+                nextObj.transform.position = position;
+                nextObj.GetComponent<Item>()._combinedObject = true;
+                nextObj.GetComponent<Item>().id = id;
+            }
         }
     }
 

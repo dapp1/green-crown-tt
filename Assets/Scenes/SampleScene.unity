@@ -3720,12 +3720,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a470cea2d94ab448ae350128557f213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectData: {fileID: 11400000, guid: 5ec6807ea916807449ae5baa7a75e996, type: 2}
   boxPoints: []
-  items:
-  - {fileID: 461417175227747142, guid: 03e412434da01a240ab30f299a38b58d, type: 3}
-  - {fileID: 461417175227747142, guid: 8b0e479f96f9f8e41916e989515d358e, type: 3}
-  - {fileID: 461417175227747142, guid: 1b99c76e9b6f1e3478abd96b64aff43a, type: 3}
-  - {fileID: 8271229450174975267, guid: a692c6e7e30f57c40be0333d96328c37, type: 3}
   isActive: 0
 --- !u!4 &476713104
 Transform:
